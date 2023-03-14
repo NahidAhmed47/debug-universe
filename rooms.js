@@ -9,7 +9,7 @@ const fetchRoomsData = async () => {
 
 fetchRoomsData();
 
-const displayRoomsData = async (rooms) => {
+const displayRoomsData = (rooms) => {
   
   const roomsContainer = document.getElementById("rooms-container");
   roomsContainer.innerHTML=''
@@ -38,15 +38,15 @@ const displayRoomsData = async (rooms) => {
 
 
 
-
-
 const range = document.getElementById("review-range");
-range.addEventListener("input", () => {
-  const value = range.Value;
+console.log(range);
+range.addEventListener('input', () => {
+  const value = range.value;
 
-  document.getElementById('review-count').innerText = value
-  const filteredData= allRooms.filter( r.number_of_reviews >= value)
-  displayRoomsData(allRooms) 
+  document.getElementById('review-count').innerText = value;
+  const filteredData= allRooms.filter((r) => r.number_of_reviews >= value);
+  console.log(filteredData);
+  displayRoomsData(filteredData) 
 });
 
 
